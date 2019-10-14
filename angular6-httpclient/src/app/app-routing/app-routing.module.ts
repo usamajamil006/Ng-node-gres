@@ -1,12 +1,31 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { CustomerComponent } from "../customer/customer.component";
+import { AddCustomerComponent } from "../add-customer/add-customer.component";
+import { CustomerDetailsComponent } from "../customer-details/customer-details.component";
 
-
+const routes: Routes = [
+  {
+    path: "customers",
+    component: CustomerComponent
+  },
+  {
+    path: "customer/add",
+    component: AddCustomerComponent
+  },
+  {
+    path: "customer/:id",
+    component: CustomerDetailsComponent
+  },
+  {
+    path: "",
+    redirectTo: "customers",
+    pathMatch: "full"
+  }
+];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
