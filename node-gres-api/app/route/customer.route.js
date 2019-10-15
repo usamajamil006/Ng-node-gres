@@ -1,4 +1,4 @@
-module.exports = () => {
+module.exports = (app) => {
   const customer = require("../controller/customer.controller");
 
   //Create A new Customer
