@@ -23,12 +23,12 @@ exports.findAll = (req, res) => {
 
 // Find Customer By id
 exports.findById = (req, res) => {
-  Customer.findById(req.params.id)
+  Customer.findByPk(req.params.id)
     .then(customer => res.json(customer))
     .catch(err => {
       console.log(err);
-      res.status(500).json({ msg: "error", details: err });
-    });
+			res.status(500).json({msg: "error", details: err});
+		});
 };
 
 // Update Customer By id
@@ -49,7 +49,7 @@ exports.update = (req, res) => {
 // Delete Customer By id
 exports.delete = (req, res) => {
   const id = req.params.id;
-  Customer.destroy(req.body, { where: { id } })
+  Customer.destroy({ where: { id } })
     .then(() => {
       res
         .status(200)
