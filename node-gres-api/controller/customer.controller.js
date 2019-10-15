@@ -33,7 +33,7 @@ exports.findById = (req, res) => {
 
 // Update Customer By id
 exports.update = (req, res) => {
-  const id = req.params.id;
+  const id = req.body.id;
   Customer.update(req.body, { where: { id } })
     .then(() => {
       res
